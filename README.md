@@ -118,7 +118,7 @@ ext2spice pex_output_file
 quit
 ```
 
-# Running LVS
+## Running LVS
 
 LVS can be run to compare the design netlist with the extracted netlist using ``netgen``:
 
@@ -126,7 +126,7 @@ LVS can be run to compare the design netlist with the extracted netlist using ``
 netgen -batch lvs "design_netlist design_top_cell" "ext_netlist ext_top_cell" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl
 ```
 
-# Running SPICE simulations
+## Running SPICE simulations
 
 SPICE simulations can be run without special options (e.g., ``ngspice myfile.spice``), but the following line should be placed near the top of the input file.
 
@@ -137,9 +137,13 @@ SPICE simulations can be run without special options (e.g., ``ngspice myfile.spi
 You'll probably need to make that an absolute path unless ``skywater-pdk`` happens to be in your current direction.  Also, remember that for ngspice, the very first line of the input file must be a comment!
 
 ## Acknowledgements
-* https://github.com/mattvenn/magic-inverter
-* https://github.com/yrrapt/amsat_txrx_ic
-* https://github.com/google/skywater-pdk
-* https://github.com/RTimothyEdwards/open_pdks
-* https://github.com/RTimothyEdwards/magic
-* https://github.com/RTimothyEdwards/netgen
+* SKY130 inverter example with a video
+  * https://github.com/mattvenn/magic-inverter
+* SKY130 chip example with DRC/LVS/PEX scripts
+  * https://github.com/yrrapt/amsat_txrx_ic
+* SkyWater Open Source PDK
+  * https://github.com/google/skywater-pdk
+  * https://github.com/RTimothyEdwards/open_pdks
+* Open Circuit Design Tools
+  * https://github.com/RTimothyEdwards/magic
+  * https://github.com/RTimothyEdwards/netgen
