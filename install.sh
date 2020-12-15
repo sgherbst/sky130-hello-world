@@ -26,7 +26,7 @@ cd ..
 # install open_pdks
 git clone https://github.com/RTimothyEdwards/open_pdks.git
 cd open_pdks
-./configure --with-sky130-source=`realpath ../skywater-pdk` --with-sky130-local-path=$PDKPATH
+./configure --with-sky130-source=`realpath ../skywater-pdk` --with-sky130-local-path=`realpath ../PDKS`
 make
 make install
 cd ..

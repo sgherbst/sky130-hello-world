@@ -16,15 +16,9 @@ jobs:
       run: sudo apt-get install m4 tcsh csh libx11-dev tcl-dev tk-dev libcairo2-dev libncurses-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev ngspice
     - name: Install platform-independent tools
       run: |
-        mkdir PDKPATH
-        export PDKPATH=`realpath PDKPATH`
-        echo $PDKPATH
-        tree -L 3
+        mkdir PDKS
         source install.sh
-        tree -L 3
     - name: Run regression test
       run: |
-        export PDKPATH=`realpath PDKPATH`
-        tree -L 3
-        echo $PDKPATH
+        export PDKPATH=`realpath PDKS/sky130A`
         source regress.sh
