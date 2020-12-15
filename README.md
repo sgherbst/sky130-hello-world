@@ -10,11 +10,15 @@ The full details for this example can always be found by examining the source co
 
 ## Installing dependencies
 
+Certain dependencies need to be installed before moving on to the SKY130-specific tools.
+
 ```shell
 sudo apt-get install m4 tcsh csh libx11-dev tcl-dev tk-dev libcairo2-dev libncurses-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev ngspice
 ```
 
 ## Installing tools
+
+This script walks through the installation of ``magic``, ``netgen``, ``skywater-pdk``, and ``open_pdks``.
 
 ```shell
 # create directory to hold open-source PDKS
@@ -113,6 +117,24 @@ ext2spice ngspice
 ext2spice pex_output_file
 quit
 ```
+
+# Running LVS
+
+LVS can be run to compare the design netlist with the extracted netlist using ``netgen``:
+
+```shell
+netgen -batch lvs "design_netlist design_top_cell" "ext_netlist ext_top_cell" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl
+```
+
+# Running SPICE simulations
+
+SPICE simulations can be run without special options (e.g., ``ngspice myfile.spice``), but the following line should be placed near the top of the input file.
+
+```spice
+.lib "skywater-pdk/libraries/sky130_fd_pr/latest/models/sky130.lib.spice" tt
+```
+
+You'll probably need to make that an absolute path unless ``skywater-pdk`` happens to be in your current direction.  Also, remember that for ngspice, the very first line of the input file must be a comment!
 
 ## Acknowledgements
 * https://github.com/mattvenn/magic-inverter
