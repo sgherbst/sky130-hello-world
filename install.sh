@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # install magic
 git clone https://github.com/RTimothyEdwards/magic.git
 cd magic
@@ -24,10 +22,6 @@ cd skywater-pdk
 git submodule init libraries/sky130_fd_pr/latest
 git submodule update
 cd ..
-
-# create directory for PDKPATH
-mkdir PDKPATH
-export PDKPATH=`realpath PDKPATH`
 
 # install open_pdks
 git clone https://github.com/RTimothyEdwards/open_pdks.git

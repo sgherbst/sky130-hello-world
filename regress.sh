@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # copy over RC file
 cp $PDKPATH/libs.tech/magic/sky130A.magicrc .magicrc
 
@@ -10,19 +8,19 @@ export CELL_NAME=sky130_fd_sc_hd__inv_1
 export GDS_FILE=inv1.gds
 magic -noconsole -dnull run_drc.tcl | tee drc.log
 if grep -q "error tiles" drc.log ; then
-    echo "@@@ Found DRC errors, which was not expected"
+    echo "Found DRC errors, which was not expected :-("
     exit 1
 else
-    echo "@@@ Found no DRC errors, as expected"
+    echo "Found no DRC errors, as expected :-)"
 fi
 
 # run DRC on a "bad" GDS: expect errors
 export GDS_FILE=inv1_bad.gds
 magic -noconsole -dnull run_drc.tcl | tee drc.log
 if grep -q "error tiles" drc.log ; then
-    echo "@@@ Found DRC errors, as expected"
+    echo "Found DRC errors, as expected :-)"
 else
-    echo "@@@ Found no DRC errors, which was not expected"
+    echo "Found no DRC errors, which was not expected :-("
     exit 1
 fi
 
@@ -34,10 +32,10 @@ export PEX_FILE=pex.spice
 magic -noconsole -dnull run_ext.tcl
 netgen -batch lvs "$LVS_FILE $CELL_NAME" "inv1.spice $CELL_NAME" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl | tee lvs.log
 if grep -q "Netlists do not match" lvs.log ; then
-    echo "@@@ Found LVS errors, which was not expected"
+    echo "Found LVS errors, which was not expected :-("
     exit 1
 else
-    echo "@@@ Found no LVS errors, as expected"
+    echo "Found no LVS errors, as expected :-)"
 fi
 
 # run extraction on a "bad" GDS: expect errors
@@ -48,8 +46,8 @@ export PEX_FILE=pex_bad.spice
 magic -noconsole -dnull run_ext.tcl
 netgen -batch lvs "$LVS_FILE $CELL_NAME" "inv1.spice $CELL_NAME" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl | tee lvs.log
 if grep -q "Netlists do not match" lvs.log ; then
-    echo "@@@ Found LVS errors, as expected"
+    echo "Found LVS errors, as expected :-)"
 else
-    echo "@@@ Found no LVS errors, which was not expected"
+    echo "Found no LVS errors, which was not expected :-("
     exit 1
 fi
