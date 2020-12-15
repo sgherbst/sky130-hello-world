@@ -6,7 +6,7 @@ load $::env(CELL_NAME)
 extract all
 ext2spice lvs
 ext2spice subcircuits off
-ext2spice -o lvs.spice
+ext2spice -o $::env(LVS_FILE)
 
 # extract for PEX
 select top cell
@@ -16,7 +16,7 @@ ext2spice cthresh 0.01
 ext2spice rthresh 0.01
 ext2spice subcircuit on
 ext2spice ngspice
-ext2spice -o pex.spice
+ext2spice -o $::env(PEX_FILE)
 
 # quit
 quit
