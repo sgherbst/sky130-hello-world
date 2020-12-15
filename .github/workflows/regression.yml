@@ -18,8 +18,13 @@ jobs:
       run: |
         mkdir PDKPATH
         export PDKPATH=`realpath PDKPATH`
+        echo $PDKPATH
+        tree -L 3
         source install.sh
+        tree -L 3
     - name: Run regression test
       run: |
         export PDKPATH=`realpath PDKPATH`
+        tree -L 3
+        echo $PDKPATH
         source regress.sh
