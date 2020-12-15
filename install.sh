@@ -29,3 +29,4 @@ cd open_pdks
 ./configure --with-sky130-source=`realpath ../skywater-pdk` --with-sky130-local-path=$PDKPATH
 make
 make install
+cd ..
