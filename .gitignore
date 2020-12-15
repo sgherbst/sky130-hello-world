@@ -1,4 +1,6 @@
+.magicrc
 lvs.spice
 pex.spice
 *.ext
 *.out
+*.log

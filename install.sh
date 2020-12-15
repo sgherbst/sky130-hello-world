@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # install magic
 git clone https://github.com/RTimothyEdwards/magic.git
 cd magic

@@ -1,8 +1,9 @@
 # read design
-gds read inv1.gds
-load sky130_fd_sc_hd__inv_1
+gds read $::env(GDS_FILE)
+load $::env(CELL_NAME)
 
 # count number of DRC errors
+drc catchup
 drc count
 
 # quit
