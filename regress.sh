@@ -51,3 +51,10 @@ else
     echo "Found no LVS errors, which was not expected :-("
     exit 1
 fi
+
+# run SPICE simulation
+echo "Running SPICE simulation"
+echo "* Inverter simulation" > pre.spice
+echo ".lib \"$SKYWATER/libraries/sky130_fd_pr/latest/models/sky130.lib.spice\" tt" >> pre.spice
+cat pre.spice pex.spice post.spice > sim.spice
+ngspice -b sim.spice
