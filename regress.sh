@@ -30,7 +30,7 @@ export GDS_FILE=inv1.gds
 export LVS_FILE=lvs.spice
 export PEX_FILE=pex.spice
 magic -noconsole -dnull run_ext.tcl
-netgen -batch lvs "$LVS_FILE $CELL_NAME" "inv1.spice $CELL_NAME" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl | tee lvs.log
+netgen -batch lvs "$LVS_FILE $CELL_NAME" "inv1.spice $CELL_NAME" $PDKPATH/libs.tech/netgen/sky130_setup.tcl | tee lvs.log
 if grep -q "Netlists do not match" lvs.log ; then
     echo "Found LVS errors, which was not expected :-("
     exit 1
@@ -44,7 +44,7 @@ export GDS_FILE=inv1_bad.gds
 export LVS_FILE=lvs_bad.spice
 export PEX_FILE=pex_bad.spice
 magic -noconsole -dnull run_ext.tcl
-netgen -batch lvs "$LVS_FILE $CELL_NAME" "inv1.spice $CELL_NAME" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl | tee lvs.log
+netgen -batch lvs "$LVS_FILE $CELL_NAME" "inv1.spice $CELL_NAME" $PDKPATH/libs.tech/netgen/sky130_setup.tcl | tee lvs.log
 if grep -q "Netlists do not match" lvs.log ; then
     echo "Found LVS errors, as expected :-)"
 else
