@@ -20,6 +20,6 @@ jobs:
         source install.sh
     - name: Run regression test
       run: |
-        export PDKPATH=`realpath PDKS/sky130A`
+        export PDKPATH=`realpath PDKS/sky130`
         export SKYWATER=`realpath skywater-pdk`
         source regress.sh
