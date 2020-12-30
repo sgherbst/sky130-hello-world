@@ -1,5 +1,5 @@
 # copy over RC file
-tree $PDKPATH 
+find
 cp $PDKPATH/libs.tech/magic/sky130.magicrc .magicrc
 
 # general setup
