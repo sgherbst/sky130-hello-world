@@ -1,5 +1,5 @@
 # copy over RC file
-cp $PDKPATH/libs.tech/magic/sky130A.magicrc .magicrc
+cp $PDKPATH/libs.tech/magic/sky130.magicrc .magicrc
 
 # general setup
 export CELL_NAME=sky130_fd_sc_hd__inv_1
