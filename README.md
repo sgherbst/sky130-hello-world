@@ -58,9 +58,14 @@ make install
 cd ..
 ```
 
-In addition, the ``PDKPATH`` environment variable should be set to the absoute path of ``PDKS/sky130``, e.g.
+In addition, the ``PDKPATH`` environment variable should be set to the absoute path of ``PDKS/sky130A``, e.g.
 ```
-export PDKPATH=`realpath PDKS/sky130`
+export PDKPATH=`realpath PDKS/sky130A`
+```
+
+For simulations in ngspice, the regression uses the ``SKYWATER`` environment variable, set to the absolute path of the skywater repository ``skywater-pdk``, e.g.
+```
+export SKYWATER=`realpath skywater-pdk`
 ```
 
 ## Running magic scripts
@@ -123,7 +128,7 @@ quit
 LVS can be run to compare the design netlist with the extracted netlist using ``netgen``:
 
 ```shell
-netgen -batch lvs "design_netlist design_top_cell" "ext_netlist ext_top_cell" $PDKPATH/libs.tech/netgen/sky130_setup.tcl
+netgen -batch lvs "design_netlist design_top_cell" "ext_netlist ext_top_cell" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl
 ```
 
 ## Running SPICE simulations
