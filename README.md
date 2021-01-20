@@ -58,9 +58,14 @@ make install
 cd ..
 ```
 
-In addition, the ``PDKPATH`` environment variable should be set to the absoute path of ``PDKS/sky130``, e.g.
+In addition, the ``PDKPATH`` environment variable should be set to the absoute path of ``PDKS/sky130A``, e.g.
 ```
-export PDKPATH=`realpath PDKS/sky130`
+export PDKPATH=`realpath PDKS/sky130A`
+```
+
+For simulations in ngspice, the regression uses the ``SKYWATER`` environment variable, set to the absolute path of the skywater repository ``skywater-pdk``, e.g.
+```
+export SKYWATER=`realpath skywater-pdk`
 ```
 
 ## Running magic scripts
