@@ -128,7 +128,7 @@ quit
 LVS can be run to compare the design netlist with the extracted netlist using ``netgen``:
 
 ```shell
-netgen -batch lvs "design_netlist design_top_cell" "ext_netlist ext_top_cell" $PDKPATH/libs.tech/netgen/sky130_setup.tcl
+netgen -batch lvs "design_netlist design_top_cell" "ext_netlist ext_top_cell" $PDKPATH/libs.tech/netgen/sky130A_setup.tcl
 ```
 
 ## Running SPICE simulations
